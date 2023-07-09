@@ -21,3 +21,24 @@ for d in data :
 print('一共有',len(new),'筆留言長度小於100')
 print(new[0])
 print(new[1])
+
+
+wc = {}
+for d in data :
+    words = d.split(' ')
+    for word in words :
+        if word in wc :
+            wc[word] += 1
+
+        else :
+            wc[word] = 1
+
+while True :
+    word = input('請輸入您想查找的關鍵字：')
+    if word == 'q' :
+        print('感謝您使用本查詢功能！')
+        break
+    if word in wc :    
+        print(word,'出現過的次數為：',wc[word])
+    else :
+        print('此單字不曾出現出現在留言之中！')
